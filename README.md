@@ -26,11 +26,13 @@ displayed. These updates will then be comitted to the database
 
 ### Dependencies
 
+Important: Please consult the configuration appendix to ensure the DB is updated to your Dropbox.
+
 You will need to create a Dropbox account to use the application.
 
 You will also need to install the dropbox SDK and depending on your OS, you might need to install sqlite.
 
-This application makes use of the following to ne imported in your text editor:
+This application makes use of the following to be imported in your text editor:
 * sqlite3
 * dropbox
 * datetime
@@ -39,9 +41,9 @@ The program automatically creates the database so there is no need to download t
 
 ### Executing program
 
-The user will be prompted to enter the access key to establish a connection with the Dropbox API.
+The user will be prompted to enter the access token to establish a connection with the Dropbox API.
 
-Once the user has entered the access key, the following menu is displayed:
+Once the user has entered the access token, the following menu is displayed:
 * 1 - Add a book
 * 2 - Update a book
   - Enter corresponding field to be updated:

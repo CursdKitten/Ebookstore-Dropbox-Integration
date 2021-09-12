@@ -199,8 +199,6 @@ while True:
 
     if len(token) < 64:
         token = print("Access token too short, please try again.\n")
-    elif len(token) > 64:
-        token = print("Access token too long, please try again.\n")
     else:
         break
 
