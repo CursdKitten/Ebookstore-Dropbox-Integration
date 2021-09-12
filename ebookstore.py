@@ -154,19 +154,6 @@ This is the portion whereby we implement all the functions above
 
 """
 
-# creating a link to our Dropbox app via access token
-token = 'OgUscFnLXjIAAAAAAAAAAZ3kC9uqotBOJFojlqSQN3ngsS-jCARUWLlB48a0IZXK'
-dbx = dropbox.Dropbox(token)
-
-# retrieving the date so that each update is stored in its
-# corresponding time folder
-today = datetime.datetime.now()
-today_date = "/" + str(today.strftime("%c")).replace(":", " ")
-
-file_from = 'ebookstore.db' # the file we wish to upload
-file_to = today_date + '/ebookstore.db'  # the path where we want to upload to
-print(today_date)
-
 db = sqlite3.connect('ebookstore.db') # creating/connecting to our database
 
 cursor = db.cursor()  # initialising a cursor object
@@ -189,6 +176,27 @@ cursor.executemany("INSERT INTO books(id, title, author, qty) VALUES(?,?,?,?)", 
 
 # saving changes
 db.commit()
+
+# retrieving the date so that each update is stored in its
+# corresponding time folder
+today = datetime.datetime.now()
+today_date = "/" + str(today.strftime("%d %b %Y %X")).replace(":", "-")
+
+file_from = 'ebookstore.db' # the file we wish to upload
+file_to = today_date + '/ebookstore.db'  # the path where we want to upload to
+
+while True:
+    token = input("Please enter the access token:\n").strip()
+
+    if len(token) < 64:
+        token = print("Access token too short, please try again.\n")
+    elif len(token) > 64:
+        token = print("Access token too long, please try again.\n")
+    else:
+        break
+
+# creating a link to our Dropbox app via access token
+dbx = dropbox.Dropbox(token)
 
 # calling upon the menu function
 menu()
