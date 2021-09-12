@@ -86,7 +86,7 @@ def delete_book():
 def search_book():
 
     # remmoving case sensitivity from user choice
-    title_id = input("Search by book title or id? (title/id)\n").lower()
+    title_id = input("Search by book title or id? (title/id/author)\n").lower()
 
     if title_id == "title":
         search_title = input("Enter book title:\n").lower()
@@ -95,11 +95,20 @@ def search_book():
         result = cursor.fetchall()
         print(result)
     
+    elif title_id == "author":
+        search_title = input("Enter book author:\n").lower()
+        # removing case sensitivity when we search the DB
+        cursor.execute("SELECT * FROM books WHERE author=? COLLATE NOCASE", (search_title,))
+        result = cursor.fetchall()
+        print(result)
+    
     elif title_id == "id":
         search_id = int(input("Enter book id:\n"))
         cursor.execute("SELECT * FROM books WHERE id=?", (search_id,))
         result = cursor.fetchall()
         print(result)
+    else:
+        print("Invalid selection. Please try again.")
 
 def upload_database(token, file_from, file_to):
 
