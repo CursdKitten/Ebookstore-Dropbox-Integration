@@ -10,25 +10,26 @@ The user is prompted to enter the access token that will act as the link to the 
 
 Once the user has successfully logged in, they are presented with a menu with the following options:
 
-* If the user enters 1, they will be propmted to enter the book's ID, title, author name and quantity in stock. This will then be pused to the MySQL database.
+* If the user enters 1, they will be prompted to enter the book's ID, title, author name and quantity in stock. This will then be pushed to the MySQL database.
 
-* If the user enters 2, they will be prompted to enter the ID of the book they wish to update after which a "sub-menu" of sorts asking which fields they would like to update is 
-displayed. These updates will then be comitted to the database
+* If the user enters 2, they will be prompted to enter the ID of the book they wish to update after which a "sub-menu" of sorts asking which fields they would like to update is displayed. These updates will then be comitted to the database.
 
 * If the user enters 3, they will be prompted to enter the ID of the book they wish to delete. Thereafter the user is asked for confirmation before deleting the book from the database.
 
-* If the user enters 4, they are propmpted to choose whether to search the database by title/ID/author. They then input the corresponding book ID/title/author and the relevant record/s is displayed.
+* If the user enters 4, they are prompted to choose whether to search the database by title/ID/author. They then input the corresponding book ID/title/author and the relevant record/s is displayed.
 
-* If the user enters 5, the database is pushed to the cloud, more specifically a directory with the date and time of upload in the Dropbox folder.
+* If the user enters 5, the database is pushed to the cloud, more specifically a directory with the date and time of upload in the Dropbox App folder.
 
 * Finally, the user can enter 0 to quit the application.
 
 
 ### Dependencies
 
+You will need to create a Dropbox account to use the application.
+
 Important: Please consult the configuration appendix to ensure the DB is updated to your Dropbox.
 
-You will need to create a Dropbox account to use the application.
+Once set up, upon entering your access token when prompted by the program, the DB should be backed up to your App folder.
 
 You will also need to install the dropbox SDK and depending on your OS, you might need to install sqlite.
 
